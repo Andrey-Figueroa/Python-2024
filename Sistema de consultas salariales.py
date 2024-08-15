@@ -77,6 +77,8 @@ if opcionElegida == 1:
             print("No cuentas con aportes a la asociación solidarista.")
         print(f"Tu salario Neto sera de: \t₡{salarioNeto:.2f}")
     deduccionesSalariales()
+elif opcionElegida == 2:
+    
 else:
     print("Opcion no encontrada")
 
