@@ -66,4 +66,19 @@ def sumarDigitos(pNumero):
     return resultado
 print(sumarDigitos(61025))
 
-
+#REVISAR
+def invertirNumero():
+    pNum = int(input("Indique el numero: "))
+    if pNum < 10:
+        return pNum
+    else:
+        resultado = 0
+        potencia = contarDigitos(pNum)-1
+        while (pNum != 0):
+            ultimoDigito = pNum % 10
+            reposicionarDigito = ultimoDigito * (10**potencia)
+            resultado = reposicionarDigito + resultado
+            pNum = pNum // 10
+            potencia = potencia - 1
+        return resultado
+print(invertirNumero())
