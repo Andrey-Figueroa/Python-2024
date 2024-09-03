@@ -85,5 +85,50 @@ def intercambiar(pNum1, pNum2):
 def test_intercambiar():
     assert intercambiar(765, 1312) == 0, "pNum1 y pNum2 deben de tener la misma cantidad de digitos"
     assert intercambiar(-115,345) == 0, "La funcion no trabaja con numero negativos"
-    assert intercambiar(1258, 4167) == 1157 "Verifique el caso numero 3"
+    assert intercambiar(1258, 4167) == 1157, "Verifique el caso numero 3"
 print(test_intercambiar())
+
+
+
+
+
+def existeDigitos(digitospNum, pNum):
+    digitospNum = abs(digitospNum)
+    pNum = abs(pNum)
+    while(pNum != 0):
+        if(pNum % 10 == digitospNum):
+            return True
+        pNum = pNum // 10
+    return False
+#print(existeDigitos(4, 4845))
+
+def test_existeDigitos():
+    assert existeDigitos(4, 4848) == True, "El digito de 4 se encuentra en 4848"
+    assert existeDigitos(-1, 1245) == True, "El digito de 1 esta presente en 1245"
+    assert existeDigitos(5, 8798) == False, "El digito de 5 no se encuentra en 8798"
+    assert existeDigitos(5, -5655)== True, "El digito 5 se encuentra en -5655"
+#print(test_existeDigitos())
+
+
+def diferenciarDigitos(pNum1, pNum2):
+    pNum1 = abs(pNum1)
+    pNum2 = abs(pNum2)
+    potencia = 0
+    resultado = 0
+    while (pNum1 != 0):
+        if(existeDigitos(pNum1 % 10, pNum2)== False):
+            resultado = resultado + ((pNum1 % 10)*10**potencia)
+            potencia += 1
+        pNum1 = pNum1 // 10
+    return resultado
+#print(diferenciarDigitos(8596, 5621))
+
+def test_diferenciarDigitos():
+    assert diferenciarDigitos(8596, 5621) == 89, "En los numeros a= 8596 y b= 5621 solo el 8 y 9 estan solo a y no en b"
+    assert diferenciarDigitos(-1524, 5646)== 12, "En los numeros a=-1524 y b= 5646 solo el 1 y 2 estan solo en a y no en b"
+    assert diferenciarDigitos(1524, -5646)== 12, "En los numeros a=-1524 y b= 5646 solo el 1 y 2 estan solo en a y no en b"
+    assert diferenciarDigitos(454, 897)== 454, "En los numeros a= 454 y b= 897 todos los numeros de a no estan en b"
+    assert diferenciarDigitos(55, 54)== 0, "En los numeros a= 55 y b= 55 todos los numeros de a estan en b"
+print(test_diferenciarDigitos())
+
+    
